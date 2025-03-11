@@ -1,3 +1,4 @@
+# filepath: c:\Users\Edge\Desktop\Coding\Code Igniter Tutorial\Dockerfile
 FROM php:8.1-cli
 
 # Install system dependencies including libicu-dev for intl extension
@@ -8,8 +9,9 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Configure and install the intl extension
-RUN docker-php-ext-configure intl && docker-php-ext-install intl
+# Configure and install the intl and mysqli extensions
+RUN docker-php-ext-configure intl && \
+    docker-php-ext-install intl mysqli pdo pdo_mysql
 
 # Install Composer (latest stable version)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

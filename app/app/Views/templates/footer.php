@@ -1,3 +1,5 @@
-<em>&copy; 2022</em>
+<footer>
+    <p>&copy; <?= date('Y') ?> Your Website</p>
+</footer>
 </body>
 </html>
